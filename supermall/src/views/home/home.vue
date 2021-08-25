@@ -60,7 +60,8 @@ export default {
          'sell':{page:0,list:[]}
        },
        tabScroTop:0,
-       scrollY:0
+       scrollY:0,
+       saveY:0
      };
    },
 

@@ -81,10 +81,8 @@ export default {
       _getSubcategories(index) {
         this.currentIndex = index;
 		    const mailKey = this.categories[index].maitKey;
-        console.log(mailKey);
         getSubcategory(mailKey).then(res => {
           this.categoryData[index].subcategories = res.data.data;
-          console.log(this.categoryData[index].subcategories);
           this.categoryData = {...this.categoryData}
           this._getCategoryDetail('pop')
           this._getCategoryDetail('new')
@@ -98,7 +96,6 @@ export default {
 		    getCategoryDetail(miniWallkey, type).then(res => {
 		      // 3.将获取的数据保存下来
 		      this.categoryData[this.currentIndex].categoryDetail[type] = res.data
-          console.log(this.categoryData[this.currentIndex].categoryDetail[type]);
           this.categoryData = {...this.categoryData}
         })
       },

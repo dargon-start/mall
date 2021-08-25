@@ -38,9 +38,10 @@ export default {
     this.scroll.on('pullingUp',()=>{
         this.$emit('upLoad');
     })
+    console.log(this.scroll);
   },
   methods: {
-      scrollTo(x,y,time=300){
+      scrollTo(x,y,time){
           this.scroll.scrollTo(x,y);
       },
       finishPullUp(){

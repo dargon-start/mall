@@ -1,12 +1,14 @@
 <template>
- <better-scroll class="Csub-scroll">
-        <div v-for="(item,index) in title" :key="index" 
-        class="Csub-item" 
-        @click="itemclick(index)"
-        :class="{itemActive:index==currentindex}">
-            {{item.title}}
-        </div>
-</better-scroll>
+<div class="Csub">
+    <better-scroll class="scroll" ref="scroll">
+            <div v-for="(item,index) in title" :key="index" 
+            class="Csub-item" 
+            @click="itemclick(index)"
+            :class="{itemActive:index==currentindex}">
+                {{item.title}}
+            </div>
+    </better-scroll>
+</div>
 </template>
 <script>
 import BetterScroll from 'components/common/Scroll/BetterScroll.vue';
@@ -27,7 +29,11 @@ export default {
    components:{
       BetterScroll
     },
-  
+    mounted () {
+        setTimeout(() => {
+            this.$refs.scroll.scroll.refresh();  
+        }, 200);
+    },
    methods:{
         itemclick(index){
             this.$emit('tabclick',index);
@@ -40,9 +46,11 @@ export default {
 }
 </script>
 <style scoped>
-.Csub-scroll{
-    width: 20%;
-    height:   calc(100vh - 93px);
+.Csub{
+    height: 100%;
+}
+.scroll{
+    height:  calc(100vh - 93px);
 }
 .Csub-item{
     width: 100%;

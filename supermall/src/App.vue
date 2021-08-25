@@ -1,9 +1,14 @@
 <template>
   <div>
-        <router-view></router-view>
-        <tab-bar></tab-bar>
-        <icon></icon>
-        <svg-icon></svg-icon>
+    <!-- <router-view v-slot="{ Component }">
+      <keep-alive include="home">
+        <component :is="Component" />
+      </keep-alive>
+    </router-view> -->
+      <router-view></router-view>
+      <tab-bar></tab-bar>
+      <icon></icon>
+      <svg-icon></svg-icon>
   </div>
 
 </template>
